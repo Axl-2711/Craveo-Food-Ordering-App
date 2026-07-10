@@ -7,7 +7,7 @@ export default function Footer() {
         <div>
           <p className="brand">
             <span className="brand__mark" aria-hidden="true">🍽️</span>
-            <span className="brand__name">FoodFood</span>
+            <span className="brand__name">Craveo</span>
           </p>
           <p className="muted">
             A React food ordering demo — discover restaurants, build a cart and place a mock order.
@@ -24,13 +24,13 @@ export default function Footer() {
 
         <div>
           <h2>Project</h2>
-          <a href="https://github.com/Axl-2711/Craveo-Food-Ordering-App" target="_blank" rel="noreferrer">
+          <a href="https://github.com/your-username/craveo" target="_blank" rel="noreferrer">
             GitHub Repository
           </a>
           <p className="muted">Built with React, Vite &amp; React Router.</p>
         </div>
       </div>
-      <p className="footer__legal">© {new Date().getFullYear()} FoodFood. Demo project — not a real delivery service.</p>
+      <p className="footer__legal">© {new Date().getFullYear()} Craveo. Demo project — not a real delivery service.</p>
     </footer>
   );
 }
