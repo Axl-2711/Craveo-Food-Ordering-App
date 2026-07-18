@@ -27,6 +27,10 @@ a { color: inherit; text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 16px; }
 .muted { color: var(--muted); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -159,3 +163,24 @@ ul { margin: 0; padding: 0; list-style: none; }
 .switch { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 6px 0; }
 .switch input { width: 18px; height: 18px; accent-color: var(--orange); }
 .searching-note { margin-bottom: 8px; }
+
+.breadcrumb { font-size: 0.88rem; color: var(--muted); }
+.restaurant-hero { padding: 0; overflow: hidden; }
+.restaurant-hero__info { padding: 20px; }
+.restaurant-hero__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 0.92rem; margin: 12px 0; }
+.offer-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.thumb--cover { width: 100%; aspect-ratio: 16 / 9; font-size: 4rem; }
+.menu-list { display: flex; flex-direction: column; }
+.menu-item { display: flex; gap: 16px; justify-content: space-between; padding: 20px 0; border-bottom: 1px dashed var(--line); }
+.menu-item__info { min-width: 0; }
+.menu-item__info > .muted { overflow-wrap: anywhere; }
+.menu-item__tags { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; }
+.menu-item__price { font-weight: 700; color: var(--ink); margin: 0 0 6px; }
+.menu-item__action { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.thumb--menu { width: 92px; height: 92px; font-size: 2.2rem; flex: 0 0 auto; }
+.veg-mark { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 2px solid; position: relative; }
+.veg-mark::after { content: ''; position: absolute; inset: 2px; border-radius: 50%; background: currentColor; }
+.veg-mark--veg { color: #17845b; }
+.veg-mark--nonveg { color: #c0392b; }
+.badge--soft { background: #f3f2ff; color: #4b40b8; }
+.chip-row--scroll { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; }
