@@ -1,9 +1,11 @@
 import Thumb from './Thumb';
 import { formatCurrency } from '../utils/helpers';
+import { useCart } from '../context/CartContext';
 
-// Cart wiring (add/remove/quantity) comes in the next stage once
-// CartContext exists — for now this just renders the dish and a static button.
-export default function MenuItem({ item }) {
+export default function MenuItem({ item, restaurant }) {
+  const { addToCart, items, increaseQuantity, decreaseQuantity } = useCart();
+  const inCart = items.find((cartItem) => cartItem.id === item.id);
+
   return (
     <li className="menu-item">
       <div className="menu-item__info">
@@ -17,9 +19,20 @@ export default function MenuItem({ item }) {
         <p className="menu-item__price">{formatCurrency(item.price)}</p>
         <p className="muted">{item.description}</p>
       </div>
+
       <div className="menu-item__action">
         <Thumb emoji={item.image} label={item.name} variant="menu" seed={item.name.length} />
-        <button type="button" className="btn btn--outline btn--sm">Add</button>
+        {inCart ? (
+          <div className="stepper" role="group" aria-label={`Quantity of ${item.name}`}>
+            <button type="button" onClick={() => decreaseQuantity(item.id)} aria-label={`Remove one ${item.name}`}>−</button>
+            <span>{inCart.quantity}</span>
+            <button type="button" onClick={() => increaseQuantity(item.id)} aria-label={`Add one ${item.name}`}>+</button>
+          </div>
+        ) : (
+          <button type="button" className="btn btn--outline btn--sm" onClick={() => addToCart(item, restaurant)}>
+            Add
+          </button>
+        )}
       </div>
     </li>
   );

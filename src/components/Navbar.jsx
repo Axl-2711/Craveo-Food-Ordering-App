@@ -1,7 +1,9 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import SearchBar from './SearchBar';
 
 export default function Navbar() {
+  const { itemCount } = useCart();
   const navigate = useNavigate();
 
   function handleSearch(query) {
@@ -26,9 +28,10 @@ export default function Navbar() {
           <SearchBar onSubmit={handleSearch} placeholder="Search food or restaurants" />
         </div>
 
-        <Link to="/cart" className="cart-button" aria-label="Cart">
+        <Link to="/cart" className="cart-button" aria-label={`Cart, ${itemCount} items`}>
           <span aria-hidden="true">🛒</span>
           <span className="cart-button__label">Cart</span>
+          {itemCount > 0 && <span className="cart-button__badge">{itemCount}</span>}
         </Link>
       </div>
     </header>

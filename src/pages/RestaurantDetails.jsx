@@ -122,9 +122,9 @@ export default function RestaurantDetails() {
         </ul>
       </section>
 
-        <div className="cart-cta">
-          <Link to="/cart" className="btn btn--primary">View cart</Link>
-        </div>
+      <div className="cart-cta">
+        <Link to="/cart" className="btn btn--primary">View cart</Link>
+      </div>
     </main>
   );
 }
