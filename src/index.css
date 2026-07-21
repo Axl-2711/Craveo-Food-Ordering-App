@@ -179,11 +179,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .thumb--cover { width: 100%; aspect-ratio: 16 / 9; font-size: 4rem; }
 .menu-list { display: flex; flex-direction: column; }
 .menu-item { display: flex; gap: 16px; justify-content: space-between; padding: 20px 0; border-bottom: 1px dashed var(--line); }
-.menu-item__info { flex: 1 1 auto; min-width: 0; }
-.menu-item__info h3 { overflow-wrap: anywhere; }
-.menu-item__tags { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; }
+.menu-item__info { flex: 1; min-width: 0; }
+.menu-item__tags { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 8px; min-height: 24px; }
 .menu-item__price { font-weight: 700; color: var(--ink); margin: 0 0 6px; }
-.menu-item__action { display: flex; flex: 0 0 auto; flex-direction: column; align-items: center; gap: 10px; }
+.menu-item__action { display: flex; flex-direction: column; align-items: center; gap: 10px; flex-shrink: 0; }
+.menu-item h3 { margin: 0 0 8px; line-height: 1.2; letter-spacing: -0.02em; }
 .thumb--menu { width: 92px; height: 92px; font-size: 2.2rem; flex: 0 0 auto; }
 .veg-mark { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 2px solid; position: relative; }
 .veg-mark::after { content: ''; position: absolute; inset: 2px; border-radius: 50%; background: currentColor; }
