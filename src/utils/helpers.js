@@ -3,11 +3,26 @@ export function formatCurrency(amount) {
   return `₹${Math.round(amount).toLocaleString('en-IN')}`;
 }
 
+/** Generates a readable mock order id, e.g. "CRV-4821K9". */
+export function generateOrderId() {
+  const random = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return `CRV-${random}`;
+}
+
+/** Returns a delivery window such as "35 - 45 min". */
+export function deliveryWindow(minutes = 30) {
+  return `${minutes} - ${minutes + 10} min`;
+}
+
 /** True if the restaurant matches a free-text query (name, cuisine, location, menu). */
 export function matchesQuery(restaurant, query) {
   const term = query.trim().toLowerCase();
   if (!term) return true;
-  const haystack = [restaurant.name, restaurant.location, ...restaurant.cuisine].join(' ').toLowerCase();
+  const haystack = [
+    restaurant.name, restaurant.location, ...restaurant.cuisine,
+    ...restaurant.menu.map((item) => item.name),
+    ...restaurant.menu.map((item) => item.category),
+  ].join(' ').toLowerCase();
   return haystack.includes(term);
 }
 
