@@ -125,6 +125,7 @@ export default function RestaurantDetails() {
         <div className="cart-cta">
           <Link to="/cart" className="btn btn--primary">View cart</Link>
         </div>
+      
     </main>
   );
 }
