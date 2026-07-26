@@ -6,12 +6,14 @@ import MenuItem from '../components/MenuItem';
 import Loading from '../components/Loading';
 import ErrorState from '../components/ErrorState';
 import { formatCurrency } from '../utils/helpers';
+import { useCart } from '../context/CartContext';
 
 export default function RestaurantDetails() {
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [status, setStatus] = useState('loading');
   const [activeCategory, setActiveCategory] = useState('Recommended');
+  const { itemCount } = useCart();
 
   useEffect(() => {
     let ignore = false;
@@ -122,10 +124,12 @@ export default function RestaurantDetails() {
         </ul>
       </section>
 
+      {itemCount > 0 && (
         <div className="cart-cta">
+          <p>{itemCount} {itemCount === 1 ? 'item' : 'items'} in your cart</p>
           <Link to="/cart" className="btn btn--primary">View cart</Link>
         </div>
-      
+      )}
     </main>
   );
 }

@@ -14,15 +14,25 @@ export function deliveryWindow(minutes = 30) {
   return `${minutes} - ${minutes + 10} min`;
 }
 
-/** True if the restaurant matches a free-text query (name, cuisine, location, menu). */
+/**
+ * True if the restaurant matches a free-text query.
+ * Matches restaurant name, cuisines, location, menu item names
+ * and menu categories — which is what a user expects from one search box.
+ */
 export function matchesQuery(restaurant, query) {
   const term = query.trim().toLowerCase();
   if (!term) return true;
+
   const haystack = [
-    restaurant.name, restaurant.location, ...restaurant.cuisine,
+    restaurant.name,
+    restaurant.location,
+    ...restaurant.cuisine,
     ...restaurant.menu.map((item) => item.name),
     ...restaurant.menu.map((item) => item.category),
-  ].join(' ').toLowerCase();
+  ]
+    .join(' ')
+    .toLowerCase();
+
   return haystack.includes(term);
 }
 
