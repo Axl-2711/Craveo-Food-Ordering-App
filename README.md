@@ -159,4 +159,4 @@ photography, add an `image` URL to the data and render an `<img loading="lazy" /
 
 ## Author
 
-Built as a frontend portfolio project. Replace this section with your name, GitHub and LinkedIn.
+Github{https://github.com/Axl-2711}
