@@ -159,4 +159,4 @@ photography, add an `image` URL to the data and render an `<img loading="lazy" /
 
 ## Author
 
-Github{https://github.com/Axl-2711}
+Github {https://github.com/Axl-2711}
